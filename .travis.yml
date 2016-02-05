@@ -5,7 +5,7 @@ before_script:
   - npm install
 script: 
   - node_modules/.bin/gulp build
-after-script:
+after_success:
   - bash ./deploy-to-gh-pages.sh
 cache:
   directories:
