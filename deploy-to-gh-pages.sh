@@ -6,6 +6,10 @@ if [ "$TRAVIS_PULL_REQUEST" != "false" -o "$TRAVIS_BRANCH" != "master" ]
 fi
 set -o errexit
 
+# config
+git config --global user.email "nobody@nobody.org"
+git config --global user.name "Travis CI"
+
 # deploy
 cd dist
 git init
