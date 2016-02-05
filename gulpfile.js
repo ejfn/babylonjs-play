@@ -26,12 +26,11 @@ gulp.task('styles', function() {
 
 // venders
 gulp.task('vendors', function() {
-  return gulp.src(['vendor/babylon.js',
-      'vendor/Oimo.js'
+  return gulp.src(['node_modules/babylonjs/babylon.js',
+      'node_modules/cannon/build/cannon.min.js'
     ])
     .pipe(gulp.dest('dist/js'));
 });
-
 
 // scripts
 gulp.task('scripts', function() {
