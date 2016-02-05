@@ -1,38 +1,32 @@
-/* global Scene */
 /* global BABYLON */
+/* global Scene */
 
-var Main = (function() {
-  'use strict';
+'use strict';
 
-  var main = {};
+var Main = {};
 
-  main.load = function() {
-    window.addEventListener('DOMContentLoaded', function() {
-      var canvas = document.getElementById('renderCanvas');
-      var engine = new BABYLON.Engine(canvas, true);
+Main.load = function() {
+  window.addEventListener('DOMContentLoaded', function() {
+    var canvas = document.getElementById('renderCanvas');
+    var engine = new BABYLON.Engine(canvas, true);
 
-      // create Scene Object
-      var sc = new Scene();
-      sc.init(engine);
-      sc.createGround();
-      sc.createSpheres(16);
-      // Render loop
-      engine.runRenderLoop(function() {
-        sc.render();
-      });
+    // create Scene Object
+    var sc = new Scene(engine);
 
-      // Resize
-      window.addEventListener('resize', function() {
-        engine.resize();
-      });
-
-      window.addEventListener('click', function() {
-        sc.createSpheres(4);
-      });
+    sc.createGround();
+    sc.createSpheres(16);
+    // Render loop
+    engine.runRenderLoop(function() {
+      sc.render();
     });
-  };
 
-  return main;
-})();
+    // Resize
+    window.addEventListener('resize', function() {
+      engine.resize();
+    });
 
-exports = Main;
+    window.addEventListener('click', function() {
+      sc.createSpheres(4);
+    });
+  });
+};
