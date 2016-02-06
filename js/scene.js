@@ -18,7 +18,7 @@ var Scene = function(engine) {
   this.camera.checkCollisions = true;
   this.camera.applyGravity = true;
   //this.camera.setTarget(new BABYLON.Vector3(0, 100, -30));
-  this.camera.setPosition(new BABYLON.Vector3(100, 120, 120));
+  this.camera.setPosition(new BABYLON.Vector3(160, 80, 100));
   this.camera.attachControl(this.engine.getRenderingCanvas(), true);
 
   // Light
@@ -33,7 +33,7 @@ var Scene = function(engine) {
 
   this.alphaMat = new BABYLON.StandardMaterial('alphaMat', this.scene);
   this.alphaMat.diffuseColor = BABYLON.Color3.White();
-  this.alphaMat.alpha = 0.2;
+  this.alphaMat.alpha = 0;
 
   // Shadows
   this.shadowGenerator = new BABYLON.ShadowGenerator(2048, this.light);
@@ -126,7 +126,7 @@ Scene.prototype.createGround = function() {
   });
 
   // Steps
-  for (var idx = 0; idx < 8; idx++) {
+  for (var idx = 0; idx < 9; idx++) {
     var st = BABYLON.Mesh.CreateBox('step' + idx.toString(), 1, this.scene);
     st.scaling = new BABYLON.Vector3(width - 3 * (idx + 5) * stepHeight, stepHeight, depth - 3 * (idx + 5) * stepHeight);
     st.material = this.groundMat;
@@ -146,6 +146,7 @@ Scene.prototype.createGround = function() {
     friction: 0.5,
     restitution: 0.7
   });
+
 };
 
 Scene.prototype.createSpheres = function(num) {
