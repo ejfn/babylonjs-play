@@ -133,6 +133,7 @@ Scene.prototype.createGround = function() {
     st.position.y = (idx + 1) * stepHeight;
     st.checkCollisions = true;
     st.receiveShadows = true;
+    this.shadowGenerator.getShadowMap().renderList.push(st);
     st.parent = ground;
     parts.push({
       mesh: st,
@@ -167,6 +168,7 @@ Scene.prototype.createSpheres = function(num) {
     if (this.meshes.length >= 50) {
       var toRemove = this.meshes.shift();
       this.scene.removeMesh(toRemove);
+      toRemove.setPhysicsState(null, null);
       toRemove.dispose();
     }
     y += 2;

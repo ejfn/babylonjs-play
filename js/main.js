@@ -14,7 +14,7 @@ Main.load = function() {
     var sc = new Scene(engine);
 
     sc.createGround();
-    sc.createSpheres(16);
+    sc.createSpheres(15);
     // Render loop
     engine.runRenderLoop(function() {
       sc.render();
@@ -26,7 +26,7 @@ Main.load = function() {
     });
 
     window.addEventListener('click', function() {
-      sc.createSpheres(4);
+      sc.createSpheres(5);
     });
   });
 };
