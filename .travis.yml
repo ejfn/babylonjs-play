@@ -1,16 +1,12 @@
 language: node_js
 node_js:
-  - "0.12" 
+  - "0.12"
 before_script:
   - npm install
-script: 
+script:
   - node_modules/.bin/gulp build
 after_success:
   - bash ./deploy-to-gh-pages.sh
 cache:
   directories:
   - node_modules
-env:
-  global:
-    - GITHUB_REPO: "ericvan76/babylonjs-play"
-    - secure: "kkyBF1ctC+KFetf94HX/swlGuHyMB8Xn5hT7md8eKj5RCyCrYv1+R4/ZzS1AEmr/+ONrK04KBosd90bzOZtPZF0ZEUmfgXPit8SbDNDnWItdBLbgMGND2woHGRIJO0WdN+K2QFr1JOHhB5sR18UhgavduD7HenrIpTCcwcVG4Yq+jBzJw9KOhIepxkZtwGw0DAw8lLu93GyE3+ZKd1IfQPyKxr1KNYJDmD8PI8jT8OiOxrHZ2B972a+SBbwpjjW4p3FPfugGyHSDAzJA0BkYVRHHZ09sfPsmK0Wa6zHKfM+VNCcpFHM6HQRNNhvQSlB7AVGSw3xccHMZvvgXpEhiZM6aSNP2tltsIDROyRfzYdMgAOZI+QRVQyFffVP0KN8Uxbb0dwb7HNPDNA2CrWekr58dqzZVPdkV1VxLe8Sw4buHkbfx+uQqWRfkV7C3huabbRun1CEtat8bJhhdDimQMyySE18gJRZ8EgXj9j8NjtnooySes6LWWj/pzpJoNJiuQiuSVf7K5z5LjB0nqjqPJfHWiubprC+Ogoi/+t3BxTCa2hh7V9Zy1IueLPkp8Wh4T3D4RXHyLqb8MtVNPqAgbLUsjcepgtA3mayqidT1szNydXm4V8PbBsUFCGTfERsQU6st8fcP9ojGHvbMyM7eNEw2/FnNomKHyf7vRJNsRSs="
